@@ -2,9 +2,9 @@ package fizzbuzz
 
 import "testing"
 
-func TestFizzBuzz(t *testing.T) {
-	got := FizzBuzz(1)
+func TestConvert(t *testing.T) {
+	got := Convert(1)
 	if got != "1" {
-		t.Errorf(`FizzBuzz(1) is %q`, got)
+		t.Errorf(`Convert(1) is %q`, got)
 	}
 }
