@@ -1,6 +1,9 @@
 package fizzbuzz
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestConvert(t *testing.T) {
 	tests := []struct {
@@ -25,9 +28,13 @@ func TestConvert(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		got := Convert(tt.n)
-		if got != tt.want {
-			t.Errorf(`Convert(%v) = %q but want %q`, tt.n, got, tt.want)
-		}
+		name := fmt.Sprintf("number:%v", tt.n)
+
+		t.Run(name, func(t *testing.T) {
+			got := Convert(tt.n)
+			if got != tt.want {
+				t.Errorf(`Convert(%v) = %q but want %q`, tt.n, got, tt.want)
+			}
+		})
 	}
 }
