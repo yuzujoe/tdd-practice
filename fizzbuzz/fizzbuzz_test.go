@@ -33,10 +33,16 @@ func TestConvert(t *testing.T) {
 
 		t.Run(name, func(t *testing.T) {
 			t.Parallel() //Run in parallel
-			got := Convert(tt.n)
-			if got != tt.want {
-				t.Errorf(`Convert(%v) = %q but want %q`, tt.n, got, tt.want)
-			}
+			testFizzBuzz(t, tt.n, tt.want)
 		})
+	}
+}
+
+// function in test
+func testFizzBuzz(t *testing.T, n int, want string) {
+	t.Helper()
+	got := Convert(n)
+	if got != want {
+		t.Errorf(`Convert(%v) = %q but want %q`, n, got, want)
 	}
 }
