@@ -28,9 +28,11 @@ func TestConvert(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		name := fmt.Sprintf("number:%v", tt.n)
 
 		t.Run(name, func(t *testing.T) {
+			t.Parallel() //Run in parallel
 			got := Convert(tt.n)
 			if got != tt.want {
 				t.Errorf(`Convert(%v) = %q but want %q`, tt.n, got, tt.want)
